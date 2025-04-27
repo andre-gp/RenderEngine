@@ -1,0 +1,8 @@
+call del ".\RenderEngine.sln"
+call rmdir /s /q ".\.vs"
+call del ".\RenderEngine\RenderEngine.vcxproj"
+call del ".\Sandbox\Sandbox.vcxproj"
+call del ".\Sandbox\Sandbox.vcxproj"
+call del ".\Sandbox\Sandbox.vcxproj"
+call del ".\RenderEngine\vendor\GLFW\GLFW.vcxproj"
+call del ".\RenderEngine\vendor\GLFW\GLFW.vcxproj.filters"

@@ -8,7 +8,8 @@ RenderEngine/RenderEngine.vcxproj
 RenderEngine/RenderEngine.vcxproj.filters
 
 # Sandbox
-
+Sandbox/Sandbox.vcxproj
+Sandbox/Sandbox.vcxproj.filters
 
 # ------------------------------
 
