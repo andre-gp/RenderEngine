@@ -1,0 +1,6 @@
+[submodule "RenderEngine/vendor/GLFW"]
+	path = RenderEngine/vendor/GLFW
+	url = https://github.com/andre-gp/glfw
+[submodule "RenderEngine/vendor/spdlog"]
+	path = RenderEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
