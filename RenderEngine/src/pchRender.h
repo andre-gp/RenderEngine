@@ -1,7 +1,8 @@
 #pragma once
 
 /*-------- CORE HEADERS --------*/
-
+#include "RenderEngine/Core.h"
+#include "RenderEngine/Log.h"
 
 /*-------- STANDARD CORE --------*/
 //#include <iostream>
@@ -9,6 +10,8 @@
 //#include <utility>
 //#include <algorithm>
 //#include <functional>
+#include <fstream>
+#include <iostream>
 
 /*-------- DATA STRUCTURES --------*/
 //#include <string>
@@ -17,5 +20,15 @@
 //#include <unordered_map>
 //#include <unordered_set>
 
+/*-------- THIRD PARTY --------*/
+/* --- glm ---*/
+#include "glm/vec3.hpp"
+
+/* --- glad ---*/
+#include <glad/glad.h>
+
+/* --- stb ---*/
 
 
+/*-------- TYPE DEFS --------*/
+#include "RenderEngine/TypeDefs.h"

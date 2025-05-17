@@ -10,18 +10,20 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "RenderEngine/vendor/GLFW/include"
 IncludeDir["glad"] = "RenderEngine/vendor/glad/include"
+IncludeDir["stb"] = "RenderEngine/vendor/stb/include/"
 IncludeDir["glm"] = "RenderEngine/vendor/glm/"
-
+IncludeDir["imgui"] = "RenderEngine/vendor/imgui/"
+ 
 
 include "RenderEngine/vendor/GLFW" -- Includes the GLFW premake5 file.
                                     -- We add this project without workspace, or anything like that, just the project.
 
 include "RenderEngine/vendor/glad"
-include "RenderEngine/vendor/glm"
+include "RenderEngine/vendor/imgui"
 
 project "RenderEngine"
     location "RenderEngine"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -34,7 +36,13 @@ project "RenderEngine"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+
+        "%{prj.name}/vendor/stb/include/**.h",
+        "%{prj.name}/vendor/stb/include/**.cpp",
+
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     includedirs
@@ -43,14 +51,16 @@ project "RenderEngine"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.glad}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb}",
+        "%{IncludeDir.imgui}"
     }
 
     links
     {
         "GLFW",
         "glad",
-        "glm"
+        "imgui"
     }
 
     filter "system:windows"
@@ -93,7 +103,10 @@ project "Sandbox"
     includedirs
     {
         "RenderEngine/vendor/spdlog/include",
-        "RenderEngine/src"
+        "RenderEngine/src",
+
+        "%{IncludeDir.glad}",
+        "%{IncludeDir.glm}"
     }
     
     links
