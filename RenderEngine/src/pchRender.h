@@ -1,7 +1,6 @@
 #pragma once
 
 /*-------- CORE HEADERS --------*/
-#include "RenderEngine/Core.h"
 #include "RenderEngine/Log.h"
 
 /*-------- STANDARD CORE --------*/
@@ -23,6 +22,7 @@
 /*-------- THIRD PARTY --------*/
 /* --- glm ---*/
 #include "glm/vec3.hpp"
+#include "glm/vec4.hpp"
 
 /* --- glad ---*/
 #include <glad/glad.h>

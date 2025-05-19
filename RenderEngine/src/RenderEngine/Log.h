@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
@@ -29,12 +28,12 @@ namespace RenderEngine
 #define RE_CORE_INFO(...)   ::RenderEngine::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define RE_CORE_WARN(...)   ::RenderEngine::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define RE_CORE_ERROR(...)  ::RenderEngine::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define RE_CORE_FATAL(...)  ::RenderEngine::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define RE_CORE_CRITICAL(...)  ::RenderEngine::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 /*-------- CLIENT LOGS --------*/
 #define RE_LOG(...)       ::RenderEngine::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define RE_INFO(...)        ::RenderEngine::Log::GetClientLogger()->info(__VA_ARGS__)
 #define RE_WARN(...)        ::RenderEngine::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define RE_ERROR(...)       ::RenderEngine::Log::GetClientLogger()->error(__VA_ARGS__)
-#define RE_FATAL(...)       ::RenderEngine::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define RE_CRITICAL(...)       ::RenderEngine::Log::GetClientLogger()->critical(__VA_ARGS__)
 

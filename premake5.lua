@@ -106,7 +106,8 @@ project "Sandbox"
         "RenderEngine/src",
 
         "%{IncludeDir.glad}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.GLFW}"
     }
     
     links
