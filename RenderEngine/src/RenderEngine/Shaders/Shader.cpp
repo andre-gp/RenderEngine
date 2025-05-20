@@ -23,7 +23,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	if (!success)
 	{
 		glGetProgramInfoLog(programID, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::LINK_FAILED\n" << infoLog << '\n';
+		RE_CRITICAL("ERROR::SHADER::LINK_FAILED\n {0}\n", infoLog);
 	}
 
 	glDeleteShader(vertexShader);
@@ -69,6 +69,11 @@ int Shader::loadAndCompileShader(const char* path, GLenum type)
 {
 	std::ifstream file{ path };
 
+	if (file.fail())
+	{
+		RE_CORE_CRITICAL("Could not find shader {0}", path);
+	}
+
 	// Ensure stream can throw exceptions.
 	file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
@@ -93,11 +98,11 @@ int Shader::loadAndCompileShader(const char* path, GLenum type)
 
 		if (type == GL_VERTEX_SHADER)
 		{
-			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+			RE_CORE_CRITICAL("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n {0}\n", infoLog);
 		}
 		else if (type == GL_FRAGMENT_SHADER)
 		{
-			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+			RE_CORE_CRITICAL("ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n {0}\n", infoLog);
 		}
 	}
 

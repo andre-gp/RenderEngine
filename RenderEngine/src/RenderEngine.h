@@ -2,14 +2,22 @@
 
 #include "RenderEngine/TypeDefs.h"
 
-/*-------- CLASSES --------*/
+/*-------- CORE CLASSES --------*/
 #include "RenderEngine/Core/Engine.h"
 #include "RenderEngine/Core/Game.h"
 
+/*-------- RENDERING CLASSES --------*/
+#include "RenderEngine/Shaders/Shader.h"
+#include "RenderEngine/Shaders/Texture.h"
+
+
+
 extern RenderEngine::Game* RenderEngine::CreateGame();
 
+extern RenderEngine::StartingConfiguration RenderEngine::GetStartingConfiguration();
+
 namespace RenderEngine
-{
+{	
 	Game* game;
 
 	Engine* engine;
@@ -22,7 +30,7 @@ namespace RenderEngine
 
 		game = CreateGame();
 
-		engine->init(game->getStartingWidth(), game->getStartingHeight());
+		engine->init(&GetStartingConfiguration());
 
 		game->start();
 	}

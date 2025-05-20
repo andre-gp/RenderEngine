@@ -5,8 +5,8 @@
 
 #include <string>
 
-#define PATH_DEFAULT_VERTEX_SHADER "C:/Users/andre/Documents/Projetos/OpenGL-Learning/gaton/shaders/vertexShader.vert"
-#define PATH_DEFAULT_FRAGMENT_SHADER "C:/Users/andre/Documents/Projetos/OpenGL-Learning/gaton/shaders/fragmentShader.frag"
+#define PATH_DEFAULT_VERTEX_SHADER "C:/Users/andre/Documents/Projetos/OpenGL-Learning/RenderEngine/RenderEngine/src/Shaders/vertexShader.vert"
+#define PATH_DEFAULT_FRAGMENT_SHADER "C:/Users/andre/Documents/Projetos/OpenGL-Learning/RenderEngine/RenderEngine/src/Shaders/fragmentShader.frag"
 
 
 class Shader
