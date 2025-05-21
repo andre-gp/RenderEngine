@@ -19,7 +19,7 @@ namespace MouseButton
 class Mouse
 {
 
-	friend class Input;
+	friend class InputInternal;
 
 public:
 	Mouse()

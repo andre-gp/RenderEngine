@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-#include "RenderEngine/Input/Input.h"
+#include "RenderEngine/Input/InputInternal.h"
 
 #define GET_WINDOW_DATA(glfwWindow) (Window*) glfwGetWindowUserPointer(glfwWindow);
 
@@ -38,6 +38,15 @@ public:
 
 				window->input.setMouseButton(button, action);				
 			});
+
+		glfwSetKeyCallback(glfwWindow, [](GLFWwindow* glfwWindow, int key, int scancode, int action, int mods)
+			{
+				//RE_CORE_LOG("Key:{0}, Scancode:{1}, Action:{2}, Mods:{3}", key, scancode, action, mods);
+
+				Window* window = GET_WINDOW_DATA(glfwWindow);
+
+				window->input.setKeyboardButton(key, action);
+			});
 	}
 
 
@@ -48,19 +57,21 @@ public:
 
 	void update()
 	{
-		glfwSwapBuffers(glfwWindow);
+		
 	}
 
 	void lateUpdate()
 	{
+		glfwSwapBuffers(glfwWindow);
+
 		input.lateUpdate();
 	}
 
-	const Input* getInput() const { return &input; }
+	InputInternal* getInput() { return &input; }
 
 private:
 
-	Input input;
+	InputInternal input;
 
 	GLFWwindow* glfwWindow;
 };

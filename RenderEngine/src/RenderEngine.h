@@ -6,9 +6,14 @@
 #include "RenderEngine/Core/Engine.h"
 #include "RenderEngine/Core/Game.h"
 
-/*-------- RENDERING CLASSES --------*/
+/*-------- UTILITY CLASSES --------*/
 #include "RenderEngine/Shaders/Shader.h"
 #include "RenderEngine/Shaders/Texture.h"
+
+#include "RenderEngine/Utility/Primitives.h"
+
+/*------- CAMERA --------*/
+#include "RenderEngine/Components/Camera/LookAtCamera.h"
 
 
 
@@ -63,6 +68,19 @@ namespace RenderEngine
 		delete engine;
 	}
 
+}
+
+namespace Input
+{
+	Keyboard* keyboard()
+	{
+		return RenderEngine::engine->input()->getKeyboard();
+	}
+
+	const Mouse* mouse()
+	{
+		return RenderEngine::engine->input()->getMouse();
+	}
 }
 
 int main()

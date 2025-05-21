@@ -8,18 +8,11 @@ layout (location = 1) in vec3 aNormal;
 out vec3 Normal;
 out vec4 WorldPos;
 
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-uniform vec3 lightPos;
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
 
 void main()
 {
-	gl_Position = projection * view * model * vec4(aPos, 1.0);
-
-	Normal = normalize(mat3(transpose(inverse(model))) * aNormal);
-
-	WorldPos = model * vec4(aPos, 1.f);
-
-	//Normal = aNormal;
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPos, 1.0f);	
 }

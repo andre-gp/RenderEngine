@@ -58,7 +58,7 @@ public:
 
 
 	void lateUpdate()
-	{
+	{		
 		mainWindow->lateUpdate();
 	}
 
@@ -76,7 +76,7 @@ public:
 
 	}
 
-	const Input* input() const { return mainWindow->getInput(); }
+	InputInternal* input() { return mainWindow->getInput(); }
 
 	Vector4 clearColor{};
 

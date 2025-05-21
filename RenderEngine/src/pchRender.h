@@ -21,8 +21,8 @@
 
 /*-------- THIRD PARTY --------*/
 /* --- glm ---*/
-#include "glm/vec3.hpp"
-#include "glm/vec4.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
 
 /* --- glad ---*/
 #include <glad/glad.h>
